@@ -6,46 +6,47 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>positions some divs</title>
+        <title>Dynamic contents</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> hello </script>
         <style>
-            box {
-                height: 10%;
-                width: 10%;
-            }
-            #d1{
-                position:absolute;
-                left: 45%;
-                top: 45%;
-                height: 10%;
-                z-index: 100;
-                background-color: blueviolet; 
-            }
-            #d2{position: absolute;
-                background-color: blue;
-                left: 30%;
-                top: 30%;
-                width: 5%;
-                height: 30%;
-                opacity: 0.5;
-                z-index: 10;
-            }
-            #d3{
-                
+            #outer {
                 position: absolute;
-                background-color: red;
-                left: 50%;
-                top: 50%;
-                height: 20%;
-                opacity: 0.5;
-                z-index: 100;
+                top: 45%;
+                left: 45%;
+                background-color: lightblue;
+                width: 5em;
+                height: 2em;
+            }
+            #inner {
+                position: absolute;
+                top: 60%;
+                height: 30%;
+                color: black;
+                clear: both;
             }
         </style>
     </head>
     <body>
-        <div class="box" id="d1" >gughgug</div>
-        <div class="box" id="d2" >oıjkoko</div>
-        <div class="box" id="d3">huıhjıj</div>
+        <div>what's up?</div>
+        <div id="outer">
+            <span id="inner">
+  hello
+            </span>
+        </div>
+        <script>
+            $('#inner').hover(function() {
+                $(this).css("background-color","green");
+                
+            }, function() {
+                $(this).css("background-color","blue");
+            });
+            
+            $('#inner').click(
+                    function() {
+                        window.location="http://www.hello.de"
+                    })
+        </script>
     </body>
 </html>
