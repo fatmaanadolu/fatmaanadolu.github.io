@@ -1,50 +1,31 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-    <head>
-    <title>FUNCTIONS</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"
-    <script src="https://www.facebook.com/"> facebook</script>
-<style>
-    #outer {
-        position: absolute;
-        left: 30%;
-        right: 40%;
-        background-color: blue;
-        
-    }
-    #inner {
-        position: absolute;
-        top: 60%;
-        height: 55%;
-        clear: both;
-        color: black;
-    }
-</style>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
 </head>
 <body>
-    
-<div><strong><h1>APPLICATION OF FUNCTIONS ON JQUERY</h1></strong></div>
-<div id="outer">
-    <span id="inner">
-        Face
-    </span>
-</div>
-<script>
-    $('#inner').hover(function(){
-        $(this).css("background-color","green");
-    } function() {
-        $(this).css("background-color","pink");
-    })
-    $('#inner').click(
-            function() {
-               window.location="https://www.facebook.com/" 
-            })
-</script>
+
+<h2>jQuery usage pratic</h2>
+
+<p><h5>using functions.</h5></p>
+<p><h5>and the other things</h5></p>
+
+<button><h4>click</h4></button>
+
 </body>
 </html>
+<script>
+$("button").click(function(){
+    $(this).css("background-color","red")
+}),
+$("h5").on({
+    mouseenter: function(){
+        $(this).css("background-color","yellow")
+    },
+    mouseleave: function(){
+        $(this).css("background-color","green")
+    }
+})
+
+</script>
