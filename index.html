@@ -6,47 +6,45 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Dynamic contents</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> hello </script>
-        <style>
-            #outer {
-                position: absolute;
-                top: 45%;
-                left: 45%;
-                background-color: lightblue;
-                width: 5em;
-                height: 2em;
-            }
-            #inner {
-                position: absolute;
-                top: 60%;
-                height: 30%;
-                color: black;
-                clear: both;
-            }
-        </style>
-    </head>
-    <body>
-        <div>what's up?</div>
-        <div id="outer">
-            <span id="inner">
-  hello
-            </span>
-        </div>
-        <script>
-            $('#inner').hover(function() {
-                $(this).css("background-color","green");
-                
-            }, function() {
-                $(this).css("background-color","blue");
-            });
-            
-            $('#inner').click(
-                    function() {
-                        window.location="http://www.hello.de"
-                    })
-        </script>
-    </body>
+    <title>FUNCTIONS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+    <script src="https://www.facebook.com/"> facebook</script>
+<style>
+    #outer {
+        position: absolute;
+        left: 30%;
+        right: 40%;
+        background-color: blue;
+        
+    }
+    #inner {
+        position: absolute;
+        top: 60%;
+        height: 55%;
+        clear: both;
+        color: black;
+    }
+</style>
+</head>
+<body>
+    
+<div><strong><h1>APPLICATION OF FUNCTIONS ON JQUERY</h1></strong></div>
+<div id="outer">
+    <span id="inner">
+        Face
+    </span>
+</div>
+<script>
+    $('#inner').hover(function(){
+        $(this).css("background-color","green");
+    } function() {
+        $(this).css("background-color","pink");
+    })
+    $('#inner').click(
+            function() {
+               window.location="https://www.facebook.com/" 
+            })
+</script>
+</body>
 </html>
