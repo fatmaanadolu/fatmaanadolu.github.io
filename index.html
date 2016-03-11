@@ -1,31 +1,48 @@
 <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
-</head>
-<body>
-
-<h2>jQuery usage pratic</h2>
-
-<p><h5>using functions.</h5></p>
-<p><h5>and the other things</h5></p>
-
-<button><h4>click</h4></button>
-
-</body>
-</html>
-<script>
-$("button").click(function(){
-    $(this).css("background-color","red")
-}),
-$("h5").on({
-    mouseenter: function(){
-        $(this).css("background-color","yellow")
-    },
-    mouseleave: function(){
-        $(this).css("background-color","green")
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <title>Functions</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        /*<script>
+            /*var res = 100;
+            for(var i=2;i<=100;i++){
+            res = i*res;
+        }
+            alert(res);*/
+    function factorial(num){
+        var res=1;
+        for(var i=2;i<=num;i++){
+            res=res*i;
+        }
+        return res;
     }
-})
+        </script>
+        <script>
+    function calculate(){
+        var innum=$("#num").val();
+        var res=factorial innum;
+        $("#res").val(res);
+    }
 
-</script>
+            </script>
+    </head>
+    <body>
+        <div>FACTORIAL</div>
+        <div>
+        <form>
+            <input type="text" id="num" value="5"/>
+            <input type="text" id="res" placeholder="result"/>
+            <input type="submit" 
+                   onclick="calculate();"
+                   mouseover="calculate();"/>
+        </form> 
+        </div>
+    </body>
+</html>
