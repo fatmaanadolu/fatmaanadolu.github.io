@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
     <title>Operator</title>
-    <h1>Operators Multiplication and Extraction</h1>
+    <h1 style="color: forestgreen; font-style: oblique; font-family: fantasy">Operators Multiplication and Extraction</h1>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -15,19 +15,26 @@ and open the template in the editor.
   <input name="a" type="number" step="any"> x
   <input name="b" type="number" step="any"> =
   <output name="out"></output>
-  <button> again</button>
-  <div>♫♪Write two numbers to multipy♪♫</div><br>
- </form
+  <button>Clear</button>
+  <div style="font-size: larger">♫♪Write two numbers to multipy♪♫</div><br>
+  </form>
 
 </head>
-<body>
+<body bgcolor="lightgreen">
 <form onSubmit="return true"  oninput="out.value = parseInt (a.value ) - parseInt (b.value)">
   <input name="a" type="number" step="any"> -
   <input name="b" type="number" step="any"> =
   <output name="out"></output>
-  <button>again</button>
-  <div> ♫♪Write two numbers to extraction♪♫</div>
+  <button>Clear</button>
+ 
+  <div style="font-size: larger"> ♫♪Write two numbers to extraction♪♫</div>
  </form>
-
+<form onSubmit="return true"  oninput="out.value = parseInt (e.value ) + parseInt (f.value)">
+  <input name="e" type="number" step="any"> +
+  <input name="f" type="number" step="any"> =
+  <output name="out"></output>
+  <button>Clear</button>
+  <div style="font-size: larger">♫♪Write two numbers to summation♪♫</div><br>
+  </form>
 </body>
 </html>
