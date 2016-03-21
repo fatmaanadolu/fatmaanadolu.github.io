@@ -6,24 +6,32 @@ and open the template in the editor.
 -->
 <html>
     <head>
-    <title>homework</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js""></script>
-    <script src="java.jp"></script>
-
-</head>
-<body>
-
-<script>
-     $(document).ready(function numbers(){ // sayfa yüklenmesi tamamlanınca işlem yap.
-        function numbers();{
-            var i=0;
-        for(var i=0; i<10; i++) {
-                document.write(i);
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    </head>
+    <body>
+        <div>JSON Example</div>
+        <p id="demo"></p>
+        <script>
+            var obj= {"name":"Bruce","lastname":"Wayne","street":"Gottham City","phone":"556-52-555","gender":"male","age":35,"height":185,"weight":93};
+            
+            
+            
+            
+              var s= obj.name+"<br>"+
+                    obj.lastname+"<br>"+
+                    obj.street+"<br>"+
+                    obj.phone+"<br>"+
+                    obj.age+"<br>"+
+                    obj.gender+"<br>"+
+                    obj.height+"<br>"+
+                    calcRatio(obj.height,obj.weight);
+             $('#demo').append(s);
+    function calcRatio(height,weight) {
+                return height/weight;
             }
-        }
-    </script>
-<div id='disp'>hello</div>
-</body>
+        </script>
+    </body>
 </html>
