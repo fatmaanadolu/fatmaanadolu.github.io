@@ -4,87 +4,26 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<!-- <html>
+<html>
     <head>
-    <title>TODO supply a title</title>
+    <title>homework</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js""></script>
+    <script src="java.jp"></script>
+
 </head>
 <body>
-<div>TODO write content</div>
-</body>
-</html>
--->
-<!-- <html>
-<head>
-<title>Argumanli Fonksiyon</title>
-<script language="JavaScript1.2">
-function hesapla(form)
-{
-var s1 = parseInt(form.s1.value)
-var s2 = parseInt(form.s2.value)
-sonuc = s1 + s2
-form.sonuc.value = sonuc
-}
-</script>
-</head>
-<body>
-<form>
-Toplama islemi için iki sayi giriniz<br>
-1. sayi = <input type="text" name="s1"><br>
-2. sayi = <input type="text" name="s2"><br>
-<input type="button" value="Topla" onclick="hesapla(this.form)"><br>
-Sonuç = <input type="text" name="sonuc">
-</form>
-</body>
-</html>
--->
-<html>
 
-  <head>
-    <script   src="https://code.jquery.com/jquery-2.2.1.js"   integrity="sha256-eNcUzO3jsv0XlJLveFEkbB8bA7/CroNpNVk3XpmnwHc="   crossorigin="anonymous"></script>
-    <title>Homework</title>
-    <h1 style='color: peru'><i>Usage of '&&' and '||'</i></h1>
-
-  </head>
-
-  <body>
-
-    <form>
-        Enter a two digit number:<input type="text" id="input1"><p>
-            <p>Choose the operator:<select id="operator">
-        <option value="+">+</option>
-        <option value="-">-</option>
-        <option value="*">*</option>
-        <option value="/">/</option>
-                </select></p>
-                <p>Enter a two digit number:<input type="text" id="input2">
-                    <p><input type="button" id="calc" value="result" onclick="calculate();"></p>
-      <input type="text" id="output">
-      <br>
-    </form>
-    <div id="twodigit">
-    </div>
-
-    <script>
-      function calculate(){
-        var input1 = $('#input1').val();
-        var input2 = $('#input2').val();
-        var num1 = parseInt(input1);
-        var num2 = parseInt(input2);
-        if(num1>100 && num1<10)){
-          alert("please enter a number between 10 and 100");
-          return;
-        }else if(enter2<10 || enter>100) {
-            alert("you should be enter a two digit number");
-            return;
-        }else {
-          var operator = $('#operator').val();
-          var res = eval(num1 + operator + num2);
-          $('#output').val(res);
-          console.log(eval(num1 + operator + num2));
+<script>
+     $(document).ready(function numbers(){ // sayfa yüklenmesi tamamlanınca işlem yap.
+        function numbers();{
+            var i=0;
+        for(var i=0; i<10; i++) {
+                document.write(i);
+            }
         }
-      }
     </script>
-  </body>
+<div id='disp'>hello</div>
+</body>
 </html>
