@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>        
+    </head>
+    <body style="background-color: blanchedalmond">
+        <h2 style="color: brown">Homework-JSON Object Practice</h2>
+        <p id="demo"></p>
+        <script>
+            var obj = {"name": "Bruce", "street": "Gottham", "phone": "555 1234567", "height": 187, "weight": 97, "age":35};
+            var rat = calcRatio(obj.age, obj.weight);
+            $('#demo').append("age/weight ratio: " + rat + "<br>");
+            
+            function calcRatio(age, weight) {
+                return age / weight;
+            }
+            
+        </script>
+
+    </body>
+</html>
