@@ -14,29 +14,30 @@
         
         <script>
             
-            var students = {students:[
-                    {"name":"caner", "age":25, "height":170},
-                    {"name":"canan", "age":27, "height":175},
-                    {"name":"jens", "age":40, "height":170}]};
-            var avgAge = calcAvgAge(students);
-            $('#avg').append("Average age of students: " + avgAge + "<br>");
-            var avgHeight = calcAvgHeight(students);
-            $('#avg').append("Average height of students: " + avgHeight + "<br>");
+            var animation = {animation:[
+                    {"name":"John", "age":25, "height":178},
+                    {"name":"Garfield", "age":12, "height":56},
+                    {"name":"oddie", "age":10, "height":70},
+                    {"name":"nermal","age": 5, "height": 60}]};
+            var avgAge = calcAvgAge(animation);
+            $('#avg').append("Average age of cartoon characters: " + avgAge + "<br>");
+            var avgHeight = calcAvgHeight(animation);
+            $('#avg').append("Average height of cartoon characters: " + avgHeight + "<br>");
             
             function calcAvgAge(obj){
                 var totalAge = 0;
-                for(var i = 0; i < obj.students.length; i++){
-                    totalAge += obj.students[i].age;
+                for(var i = 0; i < obj.animation.length; i++){
+                    totalAge += obj.animation[i].age;
                 }
-                return totalAge / obj.students.length;
+                return totalAge / obj.animation.length;
             }
             
             function calcAvgHeight(obj){
                 var totalHeight = 0;
-                for(var i=0; i< obj.students.length; i++) {
-                    totalHeight = totalHeight+obj.students[i].height;
+                for(var i=0; i< obj.animation.length; i++) {
+                    totalHeight = totalHeight+obj.animation[i].height;
                 }
-                return totalHeight/obj.students.length;
+                return totalHeight/obj.animation.length;
             }
             
         </script>
