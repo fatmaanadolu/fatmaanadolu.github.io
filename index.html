@@ -9,29 +9,40 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     </head>
     <body>
-        <div>JSON Example</div>
-        <p id="demo"></p>
+        <div>
+            <form>
+                <input id="input1"></input>
+                <input id="input2"></input>
+                <input type="button" id="calc"  value="calc"></input>
+                
+            </form>
+        </div>
         <script>
-            var obj= {"name":"Bruce","lastname":"Wayne","street":"Gottham City","phone":"556-52-555","gender":"male","age":35,"height":185,"weight":93};
-            
-            
-            
-            
-              var s= obj.name+"<br>"+
-                    obj.lastname+"<br>"+
-                    obj.street+"<br>"+
-                    obj.phone+"<br>"+
-                    obj.age+"<br>"+
-                    obj.gender+"<br>"+
-                    obj.height+"<br>"+
-                    calcRatio(obj.height,obj.weight);
-             $('#demo').append(s);
-    function calcRatio(height,weight) {
-                return height/weight;
+            function calculate() {
+                var input=$('#input1').val();
+                var= res=doCalc(input,disp);
             }
+            function doCalc(input,cbf) {
+                sleep(100);
+                cbf(input+"done with calculation");
+               
+            }
+            function sleep(dur) {
+                for(var i=0;i<1000*dur; i++) {
+                    var x=Math.SQRT2(i);
+                    if(x%10==0){
+                        console.log(i+"->"+x);
+                        
+                    }
+                }
+            }
+            function disp(show) {
+                $('#output').val(show);
+            }
+            
         </script>
+        <div></div>
     </body>
 </html>
