@@ -6,43 +6,110 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>April 4,</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script type="text/javascript">
+            $(document).ready(){
+            $("#box1").draggable();
+            $("#box2").droppable(){
+            function drop(){
+                    alert("dropped");
+            }
+            }};
+        </script>
+        <style>
+
+            #box1 {
+                background-color: red;
+                width: 20%;
+                height: 25%;
+                left: 10%;
+                position: absolute;
+            }
+            #box2 {
+                position: absolute;
+                background-color: yellow;
+                width: 20%;
+                height:78%;
+                top: 50%;
+                border-bottom-color: brown;
+                border-bottom-width: 50px;
+            }
+        </style>
     </head>
     <body>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("div").draggable();
+            $("#box2").droppable();
+            })
+            $(function() {
+            
+            $("#box1").css("background-color","green");
+            $("#box2").css("background-color","gray");
+            });
+        </script>
+
+
+        <div id="box1" class="box">arrow</div>
+        <div id="box2" class="box"></div>
         <div>
-            <form>
-                <input id="input1"></input>
-                <input id="input2"></input>
-                <input type="button" id="calc"  value="calc"></input>
-                
-            </form>
+            <ul>
+                <li id="1">1</li>
+                <li id="2">2</li>
+                <li id="3">3</li>
+                <li id="4">4</li>
+                <li id="5">5</li>
+                <li id="6">6</li>
+                <li id="7">7</li>
+            </ul>
+            <ul>
+                <li id="bi">bir</li>
+                <li id="ik">iki</li>
+                <li id="uc">üç</li>
+                <li id="do">dört</li>
+                <li id="be">beş</li>
+                <li id="al">altı</li>
+                <li id="ye">yedi</li>
+            </ul>
         </div>
-        <script>
-            function calculate() {
-                var input=$('#input1').val();
-                var= res=doCalc(input,disp);
-            }
-            function doCalc(input,cbf) {
-                sleep(100);
-                cbf(input+"done with calculation");
-               
-            }
-            function sleep(dur) {
-                for(var i=0;i<1000*dur; i++) {
-                    var x=Math.SQRT2(i);
-                    if(x%10==0){
-                        console.log(i+"->"+x);
-                        
-                    }
-                }
-            }
-            function disp(show) {
-                $('#output').val(show);
-            }
+        <script type="text/javascript">
+            $("#1").draggable();
+            $("#2").draggable();
+            $("#3").draggable();
+            $("#4").draggable();
+            $("#5").draggable();
+            $("#6").draggable();
+            $("#7").draggable();
             
         </script>
-        <div></div>
+        <script>
+            $( "#bi" ).droppable({
+   drop: function(event, ui) {    }
+});
+$( "#ik" ).droppable({
+   drop: function(event, ui) {  }
+});
+            $( "#uc" ).droppable({
+   drop: function(event, ui) {    }
+});
+            $( "#do" ).droppable({
+   drop: function(event, ui) {    }
+});
+            $( "#be" ).droppable({
+   drop: function(event, ui) {    }
+});
+            $( "#al" ).droppable({
+   drop: function(event, ui) {    }
+});
+            $( "#ye" ).droppable({
+   drop: function(event, ui) {    }
+});
+        </script>
+        
     </body>
 </html>
