@@ -1,115 +1,121 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-    <head>
-        <title>April 4,</title>
+    <head>  
+        <title>Game 1</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        <script type="text/javascript">
-            $(document).ready(){
-            $("#box1").draggable();
-            $("#box2").droppable(){
-            function drop(){
-                    alert("dropped");
-            }
-            }};
-        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+        <hr/><em><h1>Aprendamos los Numeros</h1></em><hr/>
         <style>
-
-            #box1 {
-                background-color: red;
-                width: 20%;
-                height: 25%;
-                left: 10%;
-                position: absolute;
+            ul {
+                list-style-type: none;
             }
-            #box2 {
-                position: absolute;
-                background-color: yellow;
-                width: 20%;
-                height:78%;
-                top: 50%;
-                border-bottom-color: brown;
-                border-bottom-width: 50px;
+            #order {
+                display: none;
+            }
+            #numName{
+                background-color: bisque;
+
+            }
+            body{
+                background-color: chartreuse;
             }
         </style>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>    
+        <script>
+        $(document).ready(function(){
+            document.getElementById('numName').style.color='green';
+        });
+        $(document).ready(function(){
+            document.getElementById('numNumeric').style.color='white';
+        });
+    </script>
     </head>
     <body>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $("div").draggable();
-            $("#box2").droppable();
-            })
-            $(function() {
-            
-            $("#box1").css("background-color","green");
-            $("#box2").css("background-color","gray");
-            });
-        </script>
 
-
-        <div id="box1" class="box">arrow</div>
-        <div id="box2" class="box"></div>
-        <div>
-            <ul>
-                <li id="1">1</li>
-                <li id="2">2</li>
-                <li id="3">3</li>
-                <li id="4">4</li>
-                <li id="5">5</li>
-                <li id="6">6</li>
-                <li id="7">7</li>
-            </ul>
-            <ul>
-                <li id="bi">bir</li>
-                <li id="ik">iki</li>
-                <li id="uc">üç</li>
-                <li id="do">dört</li>
-                <li id="be">beş</li>
-                <li id="al">altı</li>
-                <li id="ye">yedi</li>
-            </ul>
+    <div  style="border-style: solid; background-color: crimson">
+            <ul id="numName"></ul>
+            <ul id="numNumeric"></ul>
+            <ul id="order"></ul>
         </div>
         <script type="text/javascript">
-            $("#1").draggable();
-            $("#2").draggable();
-            $("#3").draggable();
-            $("#4").draggable();
-            $("#5").draggable();
-            $("#6").draggable();
-            $("#7").draggable();
-            
-        </script>
-        <script>
-            $( "#bi" ).droppable({
-   drop: function(event, ui) {    }
-});
-$( "#ik" ).droppable({
-   drop: function(event, ui) {  }
-});
-            $( "#uc" ).droppable({
-   drop: function(event, ui) {    }
-});
-            $( "#do" ).droppable({
-   drop: function(event, ui) {    }
-});
-            $( "#be" ).droppable({
-   drop: function(event, ui) {    }
-});
-            $( "#al" ).droppable({
-   drop: function(event, ui) {    }
-});
-            $( "#ye" ).droppable({
-   drop: function(event, ui) {    }
-});
-        </script>
-        
+            var numText = ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez'];
+            //var numText = ['null', 'eins', 'zwei'];
+            var ulText = $('#numName');
+            var ulNum = $('#numNumeric');
+            var dimx = $('body').width();
+            var dimy = $('body').height();
+            for(var i = 0; i < numText.length; i++){
+                ulText.append('<li id="t' + (i) + '">' + numText[i] + '</li>');
+                ulNum.append('<li id="n' + (i) + '">' + (i) + '</li>');
+            }
+            var hidden = 0;
+            for(var i = 0; i < numText.length; i++){
+                $("#n" + i).data("index", {index: i});
+                $("#t" + i).data("index", {index: i});
+                $("#n" + i).draggable();
+                $("#t" + i).droppable({drop: function (event, ui) {
+                    var ni = ui.draggable.attr("id");
+                    var ti = this.id;
+                    var niElem = $('#' + ni);
+                    var tiElem = $('#' + ti);
+                    if(niElem.data("index").index === tiElem.data("index").index){
+                        //correct
+                        niElem.draggable("disable");
+                        niElem.css("display", "none");
+                        hidden++;
+//                        var hidden = 0;
+//                        for(var j = 0; j < numText.length; j++){
+//                            if($('#n' + j).css("display") === "none")
+//                                hidden++;
+//                        }
+                        if(hidden === numText.length){
+//                            alert("done");
+                            $('ul').randomize();
+                            $('#numName').sortable({
+                                start: function(event, ui){
+//                                    var startPos = ui.item.index();
+//                                    ui.item.data('startPos', startPos);
+                                },
+                                update: function(event, ui){
+//                                    var startPos = ui.item.data('startPos');
+//                                    var endPos = ui.item.index();
+                                    var ordered = 0;
+                                    for(var j = 0; j < numText.length; j++){
+                                        if($('#t' + j).index() == j)
+                                            ordered++;
+                                    }
+                                    if(ordered == numText.length)
+                                        alert("Well done!!!");
+                                }
+                            });
+
+                        }
+                    } else{
+                        //wrong
+                        var left = Math.floor((Math.random() * (dimx - 20)) + 10);
+                        var top = Math.floor((Math.random() * (dimy - 20)) + 10);
+                        niElem.css("left", left+"px"); 
+                        niElem.css("top", top+"px");
+                    }
+                }});
+            }
+
+            $.fn.randomize = function (selector) {
+                var $elems = selector ? $(this).find(selector) : $(this).children(),
+                        $parents = $elems.parent();
+
+                $parents.each(function () {
+                    $(this).children(selector).sort(function () {
+                        return Math.round(Math.random()) - 0.5;
+                        // }). remove().appendTo(this); // 2014-05-24: Removed `random` but leaving for reference. See notes under 'ANOTHER EDIT'
+                    }).detach().appendTo(this);
+                });
+
+                return this;
+            };
+
+            $('ul').randomize();
+        </script>        
     </body>
 </html>
