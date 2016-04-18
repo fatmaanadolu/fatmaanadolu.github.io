@@ -2,183 +2,222 @@
 <html>
     <head>  
     <title>Game 1</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-        <style>
-            ul {
-                list-style-type: none;
-            }
-            #order {
-                display: none;
-            }
-            #numName{
-                background-color: bisque;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
 
-            }
-            body{
-                background-color: chartreuse;
-            }
-        </style>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>    
-        
-        
-        
-        
-        
-        
-        <script>
-        $(document).ready(function(){
-            document.getElementById('numName').style.color='green';
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+        #order {
+            display: none;
+        }
+        #numName{
+            background-color: bisque;
+
+        }
+        body{
+            background-color: chartreuse;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>    
+
+
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            document.getElementById('numName').style.color = 'green';
         });
-        $(document).ready(function(){
-            document.getElementById('numNumeric').style.color='white';
+        $(document).ready(function () {
+            document.getElementById('numNumeric').style.color = 'white';
         });
     </script>
-        
-        
-        
-        <script type="text/javascript">
-function timeMsg()
-{
-var t=setTimeout("alertMsg()",300000);
-}
-function alertMsg()
-{
-alert("Time Out, try again!!!");
-}
+
+    <script type="text/javascript">
+        var clicks = 0;
+        function linkClick() {
+            document.getElementById('numNumeric').value = clicks++;
+        }
+        document.write("Your score is " + clicks + ". you have finished <br/>");
+        if (clicks < 11) {
+            alert("Perfecto!!");
+        }
+        if (clicks > 11 && clicks < 15) {
+            alert("Muy Bien!!");
+        }
+        if (clicks > 15) {
+            alert("Lo siento. Usted no sabe los numeros");
+        }
+
+    </script>
+
+
+    <script type="text/javascript">
+        function timeMsg()
+        {
+            var t = setTimeout("alertMsg()", 5000);
+        }
+        function alertMsg()
+        {
+            alert("selam");
+        }
+    </script>
+</head>
+<body>
+
+<script type="text/javascript">
+    var time = new Date();
+    var day = time.getDate();
+    var month = time.getMonth();
+    month = month + 1;
+    var year = time.getFullYear();
+    var date = "Date:" + day + "/" + month + "/" + year + "<br/>";
+    document.write(date);
+    var hour = time.getHours();
+    var min = time.getMinutes();
+    var sec = time.getSeconds();
+    var clock = "Clock : " + hour + ":" + min + ":" + sec;
+    document.write(clock);
 </script>
-        
-        
-        
-    </head>
-    <body>
-        
-        <form>
-<input type="button" value="30 seconds" onClick="timeMsg()" />
-</form>
-        
-         <script>
-                (function() {
-                 var targetTime = 45;
-                 $('#it').val(targetTime);
-                 setInterval(cbt(), 1000);
-                 function cbt() {
-                 var ctl = $('#it').val();
-                 ctl===1;
-                 $('#it').val(ctl);
-                 }
-             });
-        </script>
-        
-        
-        <script type="text/javascript">
-  var saniye = 0, dakika = 0, saat = 0;
-  function bak()
-  {
-    if(saniye < 59) saniye = saniye + 1;
-    else
-    {
-      saniye = 0; 
-      if(dakika < 59) dakika = dakika + 1;
-      else{dakika = 0; saat = saat + 1;}
+
+<script>
+    (function () {
+        var targetTime = 45;
+        $('#it').val(targetTime);
+        setInterval(cbt(), 1000);
+        function cbt() {
+            var ctl = $('#it').val();
+            ctl === 1;
+            $('#it').val(ctl);
+        }
+    });
+</script>
+
+
+<image src="http://www.ispanyolcakursu.com/wp-content/uploads/2013/07/banner_spanish.gif" width="100%" height="250"/>
+<hr/><em><h1>Aprendamos los Numeros</h1></em><hr/>
+<div  style="border-style: solid; background-color: crimson">
+    <ul id="numName"></ul>
+    <ul id="numNumeric"></ul>
+    <ul id="order"></ul>
+</div>
+<script type="text/javascript">
+    var numText = ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez'];
+    //var numText = ['null', 'eins', 'zwei'];
+    var ulText = $('#numName');
+    var ulNum = $('#numNumeric');
+    var dimx = $('body').width();
+    var dimy = $('body').height();
+    for (var i = 0; i < numText.length; i++) {
+        ulText.append('<li id="t' + (i) + '">' + numText[i] + '</li>');
+        ulNum.append('<li id="n' + (i) + '">' + (i) + '</li>');
     }
-    $("#sure").html(saat + " : " + dakika + " : " + saniye);
-  }
-  $(document).ready(function(){
-    $("#sure").html("0 : 0 : 0");
-    setInterval(bak, 1000);
-  });
-</script>
-        
-        
-        <image src="http://www.ispanyolcakursu.com/wp-content/uploads/2013/07/banner_spanish.gif" width="100%" height="250"/>
-        <hr/><em><h1>Aprendamos los Numeros</h1></em><hr/>
-    <div  style="border-style: solid; background-color: crimson">
-            <ul id="numName"></ul>
-            <ul id="numNumeric"></ul>
-            <ul id="order"></ul>
-        </div>
-        <script type="text/javascript">
-            var numText = ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez'];
-            //var numText = ['null', 'eins', 'zwei'];
-            var ulText = $('#numName');
-            var ulNum = $('#numNumeric');
-            var dimx = $('body').width();
-            var dimy = $('body').height();
-            for(var i = 0; i < numText.length; i++){
-                ulText.append('<li id="t' + (i) + '">' + numText[i] + '</li>');
-                ulNum.append('<li id="n' + (i) + '">' + (i) + '</li>');
-            }
-            var hidden = 0;
-            for(var i = 0; i < numText.length; i++){
-                $("#n" + i).data("index", {index: i});
-                $("#t" + i).data("index", {index: i});
-                $("#n" + i).draggable();
-                $("#t" + i).droppable({drop: function (event, ui) {
-                    var ni = ui.draggable.attr("id");
-                    var ti = this.id;
-                    var niElem = $('#' + ni);
-                    var tiElem = $('#' + ti);
-                    if(niElem.data("index").index === tiElem.data("index").index){
-                        //correct
-                        niElem.draggable("disable");
-                        niElem.css("display", "none");
-                        hidden++;
+    var hidden = 0;
+    for (var i = 0; i < numText.length; i++) {
+        $("#n" + i).data("index", {index: i});
+        $("#t" + i).data("index", {index: i});
+        $("#n" + i).draggable();
+        $("#t" + i).droppable({drop: function (event, ui) {
+                var ni = ui.draggable.attr("id");
+                var ti = this.id;
+                var niElem = $('#' + ni);
+                var tiElem = $('#' + ti);
+                if (niElem.data("index").index === tiElem.data("index").index) {
+                    //correct
+                    niElem.draggable("disable");
+                    niElem.css("display", "none");
+                    hidden++;
 //                        var hidden = 0;
 //                        for(var j = 0; j < numText.length; j++){
 //                            if($('#n' + j).css("display") === "none")
 //                                hidden++;
 //                        }
-                        if(hidden === numText.length){
+                    if (hidden === numText.length) {
 //                            alert("done");
-                            $('ul').randomize();
-                            $('#numName').sortable({
-                                start: function(event, ui){
+                        $('ul').randomize();
+                        $('#numName').sortable({
+                            start: function (event, ui) {
 //                                    var startPos = ui.item.index();
 //                                    ui.item.data('startPos', startPos);
-                                },
-                                update: function(event, ui){
+                            },
+                            update: function (event, ui) {
 //                                    var startPos = ui.item.data('startPos');
 //                                    var endPos = ui.item.index();
-                                    var ordered = 0;
-                                    for(var j = 0; j < numText.length; j++){
-                                        if($('#t' + j).index() == j)
-                                            ordered++;
-                                    }
-                                    if(ordered == numText.length)
-                                        alert("Well done!!!");
+                                var ordered = 0;
+                                for (var j = 0; j < numText.length; j++) {
+                                    if ($('#t' + j).index() == j)
+                                        ordered++;
                                 }
-                            });
+                                if (ordered == numText.length)
+                                    alert("Well done!!!");
+                            }
+                        });
 
-                        }
-                    } else{
-                        //wrong
-                        var left = Math.floor((Math.random() * (dimx - 20)) + 10);
-                        var top = Math.floor((Math.random() * (dimy - 20)) + 10);
-                        niElem.css("left", left+"px"); 
-                        niElem.css("top", top+"px");
                     }
-                }});
-            }
+                } else {
+                    //wrong
+                    var left = Math.floor((Math.random() * (dimx - 20)) + 10);
+                    var top = Math.floor((Math.random() * (dimy - 20)) + 10);
+                    niElem.css("left", left + "px");
+                    niElem.css("top", top + "px");
+                }
+            }});
+    }
 
-            $.fn.randomize = function (selector) {
-                var $elems = selector ? $(this).find(selector) : $(this).children(),
-                        $parents = $elems.parent();
+    $.fn.randomize = function (selector) {
+        var $elems = selector ? $(this).find(selector) : $(this).children(),
+                $parents = $elems.parent();
 
-                $parents.each(function () {
-                    $(this).children(selector).sort(function () {
-                        return Math.round(Math.random()) - 0.5;
-                        // }). remove().appendTo(this); // 2014-05-24: Removed `random` but leaving for reference. See notes under 'ANOTHER EDIT'
-                    }).detach().appendTo(this);
-                });
+        $parents.each(function () {
+            $(this).children(selector).sort(function () {
+                return Math.round(Math.random()) - 0.5;
+                // }). remove().appendTo(this); // 2014-05-24: Removed `random` but leaving for reference. See notes under 'ANOTHER EDIT'
+            }).detach().appendTo(this);
+        });
 
-                return this;
-            };
+        return this;
+    };
 
-            $('ul').randomize();
-        </script>        
-    </body>
+    $('ul').randomize();
+</script>        
+<!--<script type="text/javascript">
+    var counter=0;
+   if(numNumeric===numName){
+       $(this).addClass('OK');
+   } else {
+       $(this).addClass('NOK');
+   }
+   var numItems=$('.OK').length;
+   $('.counter').html('correct'+numItems+'/5');
+   $(this).removeClass('OK NOK');
+   document.write(counter);-->
+<script type="text/javascriot">
+    var clicks = 0;
+    function linkClick(){    
+        document.getElementById('clicked').value = ++clicks;}
+        document.write('<input type="button" onclick="linkClick()" value="score">');
+</script>
+<input type="button" value="0" id="clicked" >
+    
+    
+    <input type="button" value="Start ->" onClick="loading();">
+<input type="text" value="" id="event_bar" size="50"><br>
+<script>
+function loading(){
+  object = document.getElementById('event_bar');
+  if(object.value.length == 500000000000){
+    clearTimeout(timer);
+    alert("time out!!!");
+  }else{
+    object.value += '+';
+    timer = setTimeout('loading()',100);
+  }
+}
+</script>
+</body>
 </html>
