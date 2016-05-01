@@ -1,0 +1,13 @@
+var fs= require('fs');
+var http=require("http");
+http.createServer(function(request,response){
+    response.writeHead("hello world");
+    response.writeHead(500);
+    var newFile=fs.createWriteStream('readme_copy.md');
+    request.pipe(newFile);
+    response(newFile);
+    request.on('end',function(){
+        response.end('uploaded!');
+    },500);
+
+}).listen(8080);
