@@ -1,123 +1,239 @@
-<!DOCTYPE html>
-<html>
-    <head>  
-    <title>Game 1</title>
+<!--DOCTYPE HTML>
+
+<html lang="en-US">
+
+    <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-        
-        
-        <style>
-            ul {
-                list-style-type: none;
-            }
-            #order {
-                display: none;
-            }
-            #numName{
-                background-color: bisque;
 
-            }
-            body{
-                background-color: chartreuse;
-            }
-        </style>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>    
-        <script>
-        $(document).ready(function(){
-            document.getElementById('numName').style.color='green';
-        });
-        $(document).ready(function(){
-            document.getElementById('numNumeric').style.color='white';
-        });
-    </script>
-    </head>
-    <body>
-        <image src="http://www.ispanyolcakursu.com/wp-content/uploads/2013/07/banner_spanish.gif" width="100%" height="250"/>
-        <hr/><em><h1>Aprendamos los Numeros</h1></em><hr/>
-    <div  style="border-style: solid; background-color: crimson">
-            <ul id="numName"></ul>
-            <ul id="numNumeric"></ul>
-            <ul id="order"></ul>
-        </div>
+        <title>Welcome to the Website!!</title>
+
+        <link rel="stylesheet" href="jquery.bxslider.css" />
+
+        <script type="text/javascript" src="jquery-1.9.1.js"></script>
+
+        <script type="text/javascript" src="jquery.bxslider.min.js"></script>
+
         <script type="text/javascript">
-            var numText = ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez'];
-            //var numText = ['null', 'eins', 'zwei'];
-            var ulText = $('#numName');
-            var ulNum = $('#numNumeric');
-            var dimx = $('body').width();
-            var dimy = $('body').height();
-            for(var i = 0; i < numText.length; i++){
-                ulText.append('<li id="t' + (i) + '">' + numText[i] + '</li>');
-                ulNum.append('<li id="n' + (i) + '">' + (i) + '</li>');
-            }
-            var hidden = 0;
-            for(var i = 0; i < numText.length; i++){
-                $("#n" + i).data("index", {index: i});
-                $("#t" + i).data("index", {index: i});
-                $("#n" + i).draggable();
-                $("#t" + i).droppable({drop: function (event, ui) {
-                    var ni = ui.draggable.attr("id");
-                    var ti = this.id;
-                    var niElem = $('#' + ni);
-                    var tiElem = $('#' + ti);
-                    if(niElem.data("index").index === tiElem.data("index").index){
-                        //correct
-                        niElem.draggable("disable");
-                        niElem.css("display", "none");
-                        hidden++;
-//                        var hidden = 0;
-//                        for(var j = 0; j < numText.length; j++){
-//                            if($('#n' + j).css("display") === "none")
-//                                hidden++;
-//                        }
-                        if(hidden === numText.length){
-//                            alert("done");
-                            $('ul').randomize();
-                            $('#numName').sortable({
-                                start: function(event, ui){
-//                                    var startPos = ui.item.index();
-//                                    ui.item.data('startPos', startPos);
-                                },
-                                update: function(event, ui){
-//                                    var startPos = ui.item.data('startPos');
-//                                    var endPos = ui.item.index();
-                                    var ordered = 0;
-                                    for(var j = 0; j < numText.length; j++){
-                                        if($('#t' + j).index() == j)
-                                            ordered++;
-                                    }
-                                    if(ordered == numText.length)
-                                        alert("Well done!!!");
-                                }
-                            });
 
-                        }
-                    } else{
-                        //wrong
-                        var left = Math.floor((Math.random() * (dimx - 20)) + 10);
-                        var top = Math.floor((Math.random() * (dimy - 20)) + 10);
-                        niElem.css("left", left+"px"); 
-                        niElem.css("top", top+"px");
-                    }
-                }});
-            }
+            $(function () {
+                $('#slider').bxSlider({
+                    responsive: true,
+                    captions: true,
+                    adaptiveHeight: true,
+                    nextSelector: '.bsol',
+                    prevSelector: '.bsag',
+                    nextText: 'SOL',
+                    prevText: 'SAĞ',
+                    auto: true,
+                    autoControls: false,
+                    pause: 2500,
+                    speed: 300,
+                    infiniteLoop: false,
+                    hideControlOnEnd: true
 
-            $.fn.randomize = function (selector) {
-                var $elems = selector ? $(this).find(selector) : $(this).children(),
-                        $parents = $elems.parent();
+                });
+                $('#slider2').bxSlider({
+                    slideWidth: 300,
+                    minSlides: 5,
+                    maxSlides: 5,
+                    slideMargin: 10
 
-                $parents.each(function () {
-                    $(this).children(selector).sort(function () {
-                        return Math.round(Math.random()) - 0.5;
-                        // }). remove().appendTo(this); // 2014-05-24: Removed `random` but leaving for reference. See notes under 'ANOTHER EDIT'
-                    }).detach().appendTo(this);
                 });
 
-                return this;
-            };
 
-            $('ul').randomize();
-        </script>        
+
+            })
+
+        </script>
+
+        <style type="text/css">
+
+            *{margin:0;padding:0;border:none;}
+
+            .boyut{width:100%;height:450px;}
+
+            #slider li img{width:100%;height:450px;}
+
+            .buton{width:100px;height:20px;padding:7px;text-align:center;margin:25px;background:#d12c69;float:left;}
+
+            .buton a{color:#fff;text-decoration:none;}
+
+            .temiz{clear:both;}
+
+        </style>
+
+    </head>
+
+    <body>
+
+
+
+        <div class="bsol buton"></div>
+
+        <div class="bsag buton"></div>
+
+        <div class="temiz"></div>
+
+
+
+        <div class="boyut">
+
+            <ul id="slider">
+
+                <li><img src="resim.jpg" title="UstaDerslik" /></li>
+
+                <li><img src="resim.jpg" title="UstaDerslik" /></li>
+
+                <li><img src="resim.jpg" title="UstaDerslik" /></li>
+
+                <li><img src="resim.jpg" title="UstaDerslik" /></li>
+
+                <li><img src="resim.jpg" title="UstaDerslik" /></li>
+
+            </ul>
+
+        </div>
+
+
+
+        <br /><br /><br /><br /><br />
+
+
+
+        <ul id="slider2">
+
+            <li><img src="http://www.metropoltime.com/wp-content/uploads/2016/02/DilOkulu2.jpg" /></li>
+
+            <li><img src="http://www.k-international.com/wp-content/uploads/2014/10/the-spanish-language.jpg" /></li>
+
+            <li><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT2p7rl26HFkjj8xxu_KdYwwlyOWy-zlw_Ar_R2Ipyufd1VkheRjw" /></li>
+
+      
+        </ul>
+
+
+
     </body>
+
+</html>
+
+</html>
+-->
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Welcome!</title>
+        <link rel="stylesheet" href="jquery.bxslider.css">
+        <script type="text/javascript" src="jquery-1.9.1.js"></script>
+
+        <script type="text/javascript" src="jquery.bxslider.min.js"></script>
+
+        <script type="text/javascript">
+            $(function(){
+            $('#slider').bxSlider({
+            responsive: true;
+            captions: true;
+            adaptiveHeight: true;
+            nextSelector: '.bsol';
+            prevSelector: '.bsag';
+            nextText: 'SOL';
+            prevText:'SAG';
+            auto: true;
+            autoControls: false;
+            pause: 2500;
+            speed: 300;
+            infiniteLoop: false;
+            hideControlOnEnd: true;
+            });
+            $('#slider2').bxSlider({
+            slideWidth: 300;
+            minSlides:5;
+            maxSlides:5;
+            slideMargin:10;
+            });
+            })
+        </script>
+
+        <style type="text/css">
+            *{margin:0;padding:0;border:none;}
+            .boyut{width: 100%; height: 450px;}
+            #slider li img{width: 100%; height:450px;}
+            .button{width: 100px;
+                    height: 20px;
+                    padding: 7px;
+                    text-align: center;
+                    margin: 25px;
+                    background: #d12c69;
+                    float: left;
+
+            }
+            .buton a{
+                color: #fff;
+                text-decoration: none;
+            }
+            .temiz{
+                clear:both;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bsol buton">
+            <a class="bx-next">LEFT</a>
+        </div>
+        <div class="bsag buton">
+            <a class="bx-prev">RIGHT</a>
+        </div>
+        <div class="temiz"></div>
+        <div class="boyut">
+            <div class="bx-wrapper" style="max-width: 100%">
+                <div class="bx-viewport" style="width: 100%; overflow:hidden; position:relative; height: 450px; ">
+                    <ul id="slider" style="width: 715%; position: relative; transition-duration: 0s; transform: translated3d(-900px, 0px, 0px);">
+                        <li style="float: left; list-style: none; position: relative; width: 454px">
+                            <img src="http://www.k-international.com/wp-content/uploads/2014/10/the-spanish-language.jpg" title="pic1"></li>
+                        <div class="bx-caption">
+                            <span>Image one</span>
+                        </div>
+      
+                        <li style="float: left; list-style: none; position: relative; width: 454px">
+                            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT2p7rl26HFkjj8xxu_KdYwwlyOWy-zlw_Ar_R2Ipyufd1VkheRjw" title="pic2"></li>
+                        <div class="bx-caption">
+                            <span>Image two</span>
+                        </div>
+
+                        <li style="float: left; list-style: none; position: relative; width: 454px">
+                            <img src="http://www.metropoltime.com/wp-content/uploads/2016/02/DilOkulu2.jpg" title="pic2"></li>
+                        <div class="bx-caption">
+                            <span></span>
+                        </div>
+                    </ul>
+                </div>
+                <div class="bx-controls bx-has-pager">
+                    <div class="bx-pager bx-default-pager">
+                        <div class="bx-pager-item">
+                            <a href data-slide-index="0" class="bx-pager-link">1</a>
+                        </div>
+                        <div class="bx-pager-item">
+                            <a href data-slide-index="1" class="bx-pager-link">2</a>
+                        </div>
+                        <div class="bx-pager-item">
+                            <a href data-slide-index="2" class="bx-pager-link">3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+       <!-- <div class="bx-wrapper" style="max-width: 1540px;">
+            <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height:52px ">
+                <ul id="slider2" style="width: 2215%; position: relative; transition-duration: 0s; transform: translate3d(-463.984px, 0px,0px); " 
+            </div>
+        </div>-->
+    </body>
+
 </html>
