@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+    <title>Casino Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body{
+            background-color:brown;
+        }
+        h1{
+            color: whitesmoke;
+        }
+        h2{
+            color: blanchedalmond;
+        }
+        </style>
+    
+    
+</head>
+<body>
+    <h1>To start game, please click "shake it button".</h1>
+    <h2>you will win if the three image would be same.</h2>
+    <h2>Otherwise, you will lose!!</h2>
+    <img src="http://mfyz.com/resimler/dokuman/temel-js/1.gif" border="1" id="r1">
+<img src="http://mfyz.com/resimler/dokuman/temel-js/2.gif" border="1" id="r2">
+<img src="http://mfyz.com/resimler/dokuman/temel-js/3.gif" border="1" id="r3">
+<input type="button" value=" Shake it!! " onClick="oyna()">
+
+<script>
+    var resimler = new Array('','http://mfyz.com/resimler/dokuman/temel-js/1.gif','http://mfyz.com/resimler/dokuman/temel-js/2.gif','http://mfyz.com/resimler/dokuman/temel-js/3.gif','http://mfyz.com/resimler/dokuman/temel-js/4.gif');
+function oyna(){
+  oynat(10,0);
+  setTimeout('oyun_kontrol()',2000);
+}
+function oyun_kontrol(){
+  if((document.getElementById('r1').src == document.getElementById('r2').src) &&
+      document.getElementById('r1').src == document.getElementById('r3').src){
+      // üçüde aynı
+      alert(' $$$ You win $$$ ');
+    }else{
+      alert('You lost!');
+    }
+}
+function oynat(ivme,i){
+  ivme = ivme + (ivme/3);
+  dondur();
+  if(i == 12){
+    clearInterval(zamanlayici);
+  }else{
+    zamanlayici=setTimeout('oynat('+ivme+','+(i+1)+')',ivme);
+  }
+}
+function dondur(){
+//rastgele 3 sayi cekelim 1-4 arasında
+s1 = Math.floor(Math.random()*4)+1;
+document.getElementById('r1').src = resimler[s1];
+s2 = Math.floor(Math.random()*4)+1;
+document.getElementById('r2').src = resimler[s2];
+s3 = Math.floor(Math.random()*4)+1;
+document.getElementById('r3').src = resimler[s3];
+}
+    </script>
+
+</body>
+</html>
