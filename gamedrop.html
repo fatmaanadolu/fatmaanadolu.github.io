@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>  
+    <title>Drag n Drop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<img id="resim" src="http://www.citylifemadrid.com/wp-content/uploads/r-HARD-SPEAKING-SPANISH-large5701.jpg" />
+    <h1>Aprender los Numeros</h1>
+    <style>
+    body{
+        background-color:#ffec8b;
+    }
+    #resim{
+        width:100%;
+        height:200px;
+    }
+    
+        #target{
+            position: absolute;
+            top: 10px;
+            left:10px;
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+        }
+        #arrow{
+            position: absolute;
+            top: 200px;
+            left: 500px;
+            width: 100px;
+            background-color: red;
+        }
+        ul
+        {
+            list-style-type: none;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+
+
+
+
+
+</head>
+<body>
+<div>
+    <!--            <div id="target">
+                    Target
+                </div>
+                <div id="arrow">
+                    Arrow
+                </div> -->
+    <ul id="numName">
+        <li id="t1">uno</li>
+        <li id="t2">dos</li>
+        <li id="t3">tres</li>
+        <li id="t4">cuatro</li>
+        <li id="t5">cinco</li>
+        <li id="t6">seis</li>
+        <li id="t7">siete</li>
+        <li id="t8">ocho</li>
+        <li id="t9">nueve</li>
+        <li id="t10">diez</li>
+    </ul>
+    <ul id="numNumeric">
+        <li id="d1">1</li>
+        <li id="d2">2</li>
+        <li id="d3">3</li>
+        <li id="d4">4</li>
+        <li id="d5">5</li>
+        <li id="d6">6</li>
+        <li id="d7">7</li>
+        <li id="d8">8</li>
+        <li id="d9">9</li>
+        <li id="d10">10</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $("#arrow").draggable();
+    $("#target").draggable();
+    $("#d1").draggable();
+    $("#d2").draggable();
+    $("#d3").draggable();
+    $("#d4").draggable();
+    $("#d5").draggable();
+    $("#d6").draggable();
+    $("#d7").draggable();
+    $("#d8").draggable();
+    $("#d9").draggable();
+    $("#d10").draggable();
+    
+    
+    $("#numName").droppable({drop: function (event, ui) {
+            $("#numNumeric").each(function(index){
+                $(this).css('background-color','orange');
+            });
+
+        }
+    });
+    /*
+     * for(var i=1;i<=10;i++){
+     * $("#di").droppable(
+     * $(this).css('background-color','orange');
+     * $("#ti").draggable("disabled");
+     * 
+     * }
+     */
+
+    $.fn.randomize = function (selector) {
+        var $elems = selector ? $(this).find(selector) : $(this).children(),
+                $parents = $elems.parent();
+
+        $parents.each(function () {
+            $(this).children(selector).sort(function () {
+                return Math.round(Math.random()) - 0.5;
+                // }). remove().appendTo(this); // 2014-05-24: Removed `random` but leaving for reference. See notes under 'ANOTHER EDIT'
+            }).detach().appendTo(this);
+        });
+
+        return this;
+    };
+
+    $('ul').randomize();
+</script>        
+</body>
+</html>
